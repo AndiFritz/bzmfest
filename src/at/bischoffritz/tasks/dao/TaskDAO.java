@@ -8,31 +8,30 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import at.bischoffritz.tasks.vo.Person;
-import at.bischoffritz.tasks.vo.Worker;
+import at.bischoffritz.tasks.vo.Task;
 
-public class WorkerDAO {
+public class TaskDAO {
 
-	public List<Worker> getAllWorkers() {
+	public List<Task> getAllGroups() {
 
 		try {
-			List<Worker> wList = new ArrayList<Worker>();
+			List<Task> tList = new ArrayList<Task>();
 
-			String sql = "Select p.id, p.fname, p.lname, p.email, p.mobile, p.telephone, ts.name as tshirt, ti.date, ti.start, ti.end, pl.name as place, ta.name as task from tbl_person p inner join tbl_tshirt ts ON ts.id = p.tbl_tshirt_id inner join tbl_plan on tbl_plan.tbl_person_id = p.id inner join tbl_times ti on tbl_plan.tbl_times_id = ti.id inner join tbl_task ta on tbl_plan.tbl_task_id = ta.id inner join tbl_places pl on ta.tbl_places_id = pl.id;";
+			String sql = "SELECT * from tbl_groups";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
 			if (!rs.first()) {
-				return wList;
+				return tList;
 			}
 
 			while (!rs.isAfterLast()) {
-				Worker w = new Worker(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12));
-				wList.add(w);
+				Task t = new Task(rs.getInt(1), rs.getString(2));
+				tList.add(t);
 				rs.next();
 			}
 
-			return wList;
+			return tList;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -40,8 +39,6 @@ public class WorkerDAO {
 		}
 
 	}
-	
-
 	
 	private Connection getConnection() {
 		try {

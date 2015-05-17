@@ -9,23 +9,29 @@ public class Person {
 	private String fname;
 	private String lname;
 	private String email;
-	private String mobie;
+	private String mobile;
 	private String telephone;
+	private String city;
+	private String address;
+	private String gebyear;
 	private String tshirt;
 	private String time;
 	private String place;
 	private String task;
 	
 	public Person(int id, String fname, String lname, String email,
-			String mobie, String telephone, String tshirt, String time,
+			String mobile, String telephone, String city, String address, String gebyear, String tshirt, String time,
 			String place, String task) {
 		super();
 		this.id = id;
 		this.fname = fname;
 		this.lname = lname;
 		this.email = email;
-		this.mobie = mobie;
+		this.mobile = mobile;
 		this.telephone = telephone;
+		this.city = city;
+		this.address = address;
+		this.gebyear = gebyear;
 		this.tshirt = tshirt;
 		this.time = time;
 		this.place = place;
@@ -69,11 +75,11 @@ public class Person {
 	}
 
 	public String getMobie() {
-		return mobie;
+		return mobile;
 	}
 
-	public void setMobie(String mobie) {
-		this.mobie = mobie;
+	public void setMobie(String mobile) {
+		this.mobile = mobile;
 	}
 
 	public String getTelephone() {
@@ -88,8 +94,10 @@ public class Person {
 		return tshirt;
 	}
 
-	public void setTshirt(String tshirt) {
-		this.tshirt = tshirt;
+	public void setTshirt(int tshirt) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(tshirt);
+		this.tshirt = sb.toString();
 	}
 
 	public String getTime() {
@@ -112,9 +120,60 @@ public class Person {
 		return task;
 	}
 
+	public void setTask(int task) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(task);
+		this.task = sb.toString();
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getAdress() {
+		return address;
+	}
+
+	public void setAdress(String address) {
+		this.address = address;
+	}
+
+	public String getGebyear() {
+		return gebyear;
+	}
+
+	public void setGebyear(String gebyear) {
+		this.gebyear = gebyear;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void setTshirt(String tshirt) {
+		this.tshirt = tshirt;
+	}
+
 	public void setTask(String task) {
 		this.task = task;
 	}
+	
 	
 	
 	

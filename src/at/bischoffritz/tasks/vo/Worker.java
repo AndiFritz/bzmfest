@@ -11,21 +11,21 @@ public class Worker {
 	private String email;
 	private String mobile;
 	private String telephone;
-	private int fk_tshirt;
+	private String tshirt;
 	private String date;
 	private String start;
 	private String end; 
 	private String place;
 	private String task;
 	
-	public Worker(String fname, String lname, int id, String email, String mobile, String telephone, int fk_tshirt, String date, String start, String end, String place, String task){
+	public Worker(int id, String fname, String lname, String email, String mobile, String telephone, String tshirt, String date, String start, String end, String place, String task){
+		this.id = id;
 		this.fname = fname;
 		this.lname = lname;
-		this.id = id;
 		this.email = email;
 		this.mobile = mobile;
 		this.telephone = telephone;
-		this.fk_tshirt = fk_tshirt;
+		this.tshirt = tshirt;
 		this.date = date;
 		this.start= start;
 		this.end = end;
@@ -85,12 +85,20 @@ public class Worker {
 		this.telephone = telephone;
 	}
 
-	public int getFk_tshirt() {
-		return fk_tshirt;
+	public String getFk_tshirt() {
+		return tshirt;
 	}
 
-	public void setFk_tshirt(int fk_tshirt) {
-		this.fk_tshirt = fk_tshirt;
+	public String getTshirt() {
+		return tshirt;
+	}
+
+	public void setTshirt(String tshirt) {
+		this.tshirt = tshirt;
+	}
+
+	public void setFk_tshirt(String tshirt) {
+		this.tshirt = tshirt;
 	}
 
 	public String getDate() {
